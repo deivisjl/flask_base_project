@@ -9,10 +9,10 @@ login_manager = LoginManager()
 #login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
-# from flaskblog.users.routes import users
-# from flaskblog.posts.routes import posts
-# from flaskblog.main.routes import main
-# from flaskblog.errors.handlers import errors
+# from flaskapp.users.routes import users
+# from flaskapp.posts.routes import posts
+# from flaskapp.main.routes import main
+from flaskapp.errors.handlers import errors
 
 def create_app():
     app = Flask(__name__)
@@ -27,6 +27,6 @@ def create_app():
     # app.register_blueprint(users)
     # app.register_blueprint(posts)
     # app.register_blueprint(main)
-    # app.register_blueprint(errors)
+    app.register_blueprint(errors)
 
     return app
