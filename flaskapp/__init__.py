@@ -9,9 +9,10 @@ login_manager = LoginManager()
 #login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 
+from flaskapp.main.routes import main
 # from flaskapp.users.routes import users
 # from flaskapp.posts.routes import posts
-# from flaskapp.main.routes import main
+
 from flaskapp.errors.handlers import errors
 
 def create_app():
@@ -24,9 +25,10 @@ def create_app():
     app.config['SECRET_KEY']=''
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flaskdb.db'
 
+    app.register_blueprint(main)
     # app.register_blueprint(users)
     # app.register_blueprint(posts)
-    # app.register_blueprint(main)
+    
     app.register_blueprint(errors)
 
     return app
